@@ -1,0 +1,24 @@
+# used to implement multiple containers
+
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+# up in the configuration, two containers will be created running postgres and redis with provided environment variables and ports
+
+# type `docker compose up` to start the containers
+# type `docker compose down` to stop the containers
+# type `docker compose up -d` to start the containers in background
